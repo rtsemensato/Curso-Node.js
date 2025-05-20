@@ -11,6 +11,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"5_script_npm": "file:",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {

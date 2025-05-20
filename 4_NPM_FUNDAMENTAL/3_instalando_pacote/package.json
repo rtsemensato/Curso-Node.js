@@ -10,6 +10,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"3_instalando_pacote": "file:",
 		"lodash": "^4.17.21"
 	}
 }
