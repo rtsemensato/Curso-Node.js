@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "15_tarefa_2": "file:",
     "chalk": "^4.1.2",
     "inquirer": "^8.1.2"
   }

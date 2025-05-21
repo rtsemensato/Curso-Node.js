@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "10_abstracao_input": "file:",
     "inquirer": "^8.1.2"
   }
 }
