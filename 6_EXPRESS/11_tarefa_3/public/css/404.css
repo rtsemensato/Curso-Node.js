@@ -1,0 +1,10 @@
+body {
+	padding: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #ccc;
+	color: crimson;
+	gap: 1rem;
+}

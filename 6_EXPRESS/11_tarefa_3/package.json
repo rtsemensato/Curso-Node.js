@@ -1,0 +1,23 @@
+{
+	"name": "11_tarefa_3",
+	"version": "1.0.0",
+	"description": "projeto express tarefa 3",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"serve": "nodemon ./index.js localhost 5000"
+	},
+	"keywords": [
+		"express",
+		"node"
+	],
+	"author": "Ricardo Semensato",
+	"license": "ISC",
+	"dependencies": {
+		"11_tarefa_3": "file:",
+		"express": "^5.1.0"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.10"
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "1_instalacao",
+  "version": "1.0.0",
+  "description": "instalacao",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricardo Semensato",
+  "license": "ISC",
+  "dependencies": {
+    "1_instalacao": "file:",
+    "express": "^5.1.0"
+  }
+}
