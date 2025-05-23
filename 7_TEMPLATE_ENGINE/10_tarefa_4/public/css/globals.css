@@ -1,0 +1,27 @@
+#products {
+	display: grid;
+	grid-template-rows: min-content min-content;
+	grid-template-columns: min-content min-content;
+	gap: 1.5rem;
+}
+
+.card {
+	display: grid;
+	width: 17rem;
+	padding: 1rem 2rem;
+	flex-direction: column;
+	gap: 1rem;
+	border: 1px solid #999;
+	border-radius: 0.5rem;
+	background-color: #eee;
+	transition: background-color ease-in-out 200ms;
+}
+
+.card:hover {
+	background-color: #aaa;
+	cursor: pointer;
+}
+
+.card a {
+	text-decoration: none;
+}
