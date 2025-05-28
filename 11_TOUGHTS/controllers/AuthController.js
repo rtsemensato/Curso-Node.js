@@ -36,7 +36,6 @@ module.exports = class AuthController {
 
 		req.session.save(() => {
 			res.redirect('/');
-			// res.render('toughts/home');
 		});
 	}
 
@@ -85,7 +84,6 @@ module.exports = class AuthController {
 
 			req.session.save(() => {
 				res.redirect('/');
-				// res.render('toughts/home');
 			});
 		} catch (error) {
 			console.log(error);
