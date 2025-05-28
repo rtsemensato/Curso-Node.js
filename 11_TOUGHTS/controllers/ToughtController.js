@@ -7,4 +7,8 @@ module.exports = class toughtsController {
 
 		res.render('toughts/home', toughts);
 	}
+
+	static async dashboard(req, res) {
+		res.render('toughts/dashboard');
+	}
 };

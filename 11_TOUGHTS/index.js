@@ -10,7 +10,8 @@ const Tought = require('./models/Tought');
 const User = require('./models/User');
 
 //import routes
-const toughtsRoutes = require('./routes/toughtsRouter');
+const toughtsRoutes = require('./routes/toughtsRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 //import controller
 const ToughtsController = require('./controllers/ToughtController');
@@ -53,6 +54,7 @@ app.use(express.static('public'));
 
 //set session to res
 app.use((req, res, next) => {
+	console.log('req.session.userid: ', req.session.userid);
 	if (req.session.userid) {
 		res.locals.session = req.session;
 	}
@@ -62,6 +64,7 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/toughts', toughtsRoutes);
+app.use('/', authRoutes);
 
 app.get('/', ToughtsController.showToughts);
 
