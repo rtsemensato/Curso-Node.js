@@ -261,6 +261,10 @@ form input[type='submit']:hover,
 }
 
 .order-container i {
+	transition: color 100ms ease-in-out;
+}
+
+.order-container i:hover {
 	color: #f6982d;
 }
 
