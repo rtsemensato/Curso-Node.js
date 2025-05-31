@@ -86,3 +86,8 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+backend/public/images/pets/*.png
+backend/public/images/pets/*.jpg
+backend/public/images/users/*.png
+backend/public/images/users/*.jpg
