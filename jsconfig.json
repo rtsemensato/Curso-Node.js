@@ -1,6 +1,14 @@
 {
 	"compilerOptions": {
+		"jsx": "react",
 		"checkJs": true
 	},
-	"include": ["**/*.js", "12_MONGODB/models/Product.js"]
+	"include": [
+		"**/*.js",
+		"12_MONGODB/models/Product.js",
+		"15_GETAPET/frontend/src/index.jsx",
+		"15_GETAPET/frontend/src/index.jsx",
+		"15_GETAPET/frontend/src/App.jsx",
+		"15_GETAPET/frontend/src/components/pages/Auth/Home.jsx"
+	]
 }
