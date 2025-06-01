@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const createUserToken = require('../helpers/create-user-token');
 const getToken = require('../helpers/get-token');
+const getUserByToken = require('../helpers/get-user-by-token');
 
 module.exports = class UserController {
 	static async register(req, res) {
@@ -130,6 +131,71 @@ module.exports = class UserController {
 	}
 
 	static async editUser(req, res) {
-		res.status(200).json({ message: 'Deu certo o update' });
+		const { name, email, phone, password, confirmpassword } = req.body;
+
+		//check if user exists
+		const token = getToken(req);
+		const user = await getUserByToken(token, res);
+
+		if (!user) {
+			res.status(422).json({ message: 'Usuário não encontrado!' });
+			return;
+		}
+
+		//validations
+		if (!name) {
+			res.status(422).json({ message: 'O nome é obrigatório' });
+			return;
+		}
+
+		user.name = name;
+
+		if (!email) {
+			res.status(422).json({ message: 'O e-mail é obrigatório' });
+			return;
+		}
+
+		//check if email has already been taken
+		const userExists = await User.findOne({ email });
+
+		if (userExists && user.email !== email) {
+			res.status(422).json({ message: 'Já existe um usuário com esse e-mail. Por favor, utilize outro e-mail!' });
+			return;
+		}
+
+		user.email = email;
+
+		if (!phone) {
+			res.status(422).json({ message: 'O telefone é obrigatório' });
+			return;
+		}
+
+		user.phone = phone;
+
+		if (password !== confirmpassword) {
+			res.status(422).json({ message: 'A senha e confirmação de senha devem ser iguais' });
+			return;
+		} else if (password && password === confirmpassword) {
+			//creating password
+			const salt = await bcrypt.genSalt(12);
+			const passwordHash = await bcrypt.hash(password, salt);
+
+			user.password = passwordHash;
+		}
+
+		if (req.file) {
+			user.image = req.file.filename;
+		}
+
+		try {
+			//returns user updated data
+			const { _id, ...userData } = user; //removendo o _id do user para não ir pra atualização
+			await User.findOneAndUpdate({ _id }, { $set: userData }, { new: true }); //o new: true retorna o documento já atualizado
+
+			res.status(200).json({ message: 'Usuário atualizado com sucesso!' });
+		} catch (error) {
+			res.status(500).json({ message: error });
+			return;
+		}
 	}
 };
