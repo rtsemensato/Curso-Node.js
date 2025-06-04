@@ -9,6 +9,8 @@
 		"15_GETAPET/frontend/src/index.jsx",
 		"15_GETAPET/frontend/src/index.jsx",
 		"15_GETAPET/frontend/src/App.jsx",
-		"15_GETAPET/frontend/src/components/pages/Auth/Home.jsx"
+		"15_GETAPET/frontend/src/components/pages/Auth/Home.jsx",
+		"15_GETAPET/frontend/src/components/form/Input.jsz",
+		"15_GETAPET/frontend/src/components/form/PetForm.jsx"
 	]
 }

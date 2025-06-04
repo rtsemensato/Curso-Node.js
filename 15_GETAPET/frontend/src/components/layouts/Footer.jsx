@@ -1,10 +1,13 @@
 import React from 'react';
+import styles from './Footer.module.css';
 
 function Footer() {
 	return (
-		<section>
-			<h1>Footer</h1>
-		</section>
+		<footer className={styles.footer}>
+			<p>
+				<span className="bold">Get A Pet</span> &copy; 2025
+			</p>
+		</footer>
 	);
 }
 
