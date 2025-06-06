@@ -19,6 +19,7 @@ function Navbar() {
 				</li>
 				{authenticated && (
 					<>
+						<Link to="/user/profile">Perfil</Link>
 						<li onClick={logout}>Sair</li>
 					</>
 				)}

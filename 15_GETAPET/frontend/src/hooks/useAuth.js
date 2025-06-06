@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../utils/api';
 import useFlashMessage from './useFlashMessage';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +21,25 @@ export default function useAuth() {
 
 			await authUser(data);
 		} catch (error) {
+			msgText = error.response.data.message;
+			msgType = 'error';
+		}
+
+		setFlashMessage(msgText, msgType);
+	}
+
+	async function login(user) {
+		let msgText = 'Login realizado com sucesso';
+		let msgType = 'success';
+
+		try {
+			const data = await api.post('/users/login', user).then((response) => {
+				return response.data;
+			});
+
+			await authUser(data);
+		} catch (error) {
+			console.log('error: ', error);
 			msgText = error.response.data.message;
 			msgType = 'error';
 		}
@@ -56,5 +75,5 @@ export default function useAuth() {
 		}
 	}, []);
 
-	return { register, authUser, authenticated, logout };
+	return { register, login, authUser, logout, authenticated };
 }

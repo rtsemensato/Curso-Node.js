@@ -8,6 +8,7 @@ import Footer from './components/layouts/Footer';
 import Container from './components/layouts/Container';
 import { UserProvider } from './context/UserContext';
 import Message from './components/layouts/Message';
+import Profile from './components/pages/User/Profile';
 
 function App() {
 	return (
@@ -17,9 +18,10 @@ function App() {
 				<Message />
 				<Container>
 					<Routes>
+						<Route path="/" element={<Home />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
-						<Route path="/" element={<Home />} />
+						<Route path="/user/profile" element={<Profile />} />
 					</Routes>
 				</Container>
 				<Footer />
